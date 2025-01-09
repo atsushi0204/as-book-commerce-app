@@ -2,7 +2,6 @@
 
 import { getProviders, signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
-
 // eslint-disable-next-line @next/next/no-async-client-component
 function Login() {
   const [providers, setProviders] = useState<any>(null);
@@ -10,7 +9,6 @@ function Login() {
   useEffect(() => {
     const fetchProviders = async () => {
       const res = await getProviders();
-      console.log(res);
       setProviders(res);
     };
 
