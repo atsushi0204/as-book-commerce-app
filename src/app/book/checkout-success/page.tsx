@@ -23,7 +23,7 @@ const PurchaseSuccess = () => {
             }
           );
           const data = await response.json();
-          setBookUrl(data.purchase?.bookId!);
+          setBookUrl(data.purchase?.bookId!); // eslint-disable-line @typescript-eslint/no-non-null-asserted-optional-chain
         } catch (err) {
           console.error(err);
         }
