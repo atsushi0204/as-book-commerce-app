@@ -1,8 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { PrismaClient } from "@prisma/client";
 
 type pc = PrismaClient;
-
-let prisma: pc;
 
 // ホットリロードされても、インスタンスが新たに作成されなくなる
 // ホットリロード：アプリケーションが実行されている間にコードを変更し、その変更をリアルタイムに反映させる技術
@@ -14,8 +13,7 @@ const globalForPrisma = global as any as{
 if(!globalForPrisma.prisma){
   globalForPrisma.prisma = new PrismaClient();
 };
-
-prisma = globalForPrisma.prisma;
+const prisma: pc = globalForPrisma.prisma;
 
 export default prisma;
 

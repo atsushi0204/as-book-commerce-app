@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
     const existiongPurchase = await prisma.purchase.findFirst({
       where: {
-        userId: session.client_reference_id!,
+        userId: session.client_reference_id!, // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
         bookId: session.metadata?.bookId!,
       },
     });
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     if (!existiongPurchase) {
       const purchase = await prisma.purchase.create({
         data: {
-          userId: session.client_reference_id!,
+          userId: session.client_reference_id!, // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
           bookId: session.metadata?.bookId!,
         },
       });
