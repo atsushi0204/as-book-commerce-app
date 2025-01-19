@@ -4,14 +4,14 @@ import { BookType } from "@/app/types/types";
 import Image from "next/image";
 import React from "react";
 
-type DetailBook = {
+type DetailBookType = {
   publishedAt?: string
   updatedAt: string
 };
 
-const DetailBook = async ({params}: {params: {id: string}}) => {
-  const {id} = params;
-  const book: BookType & DetailBook = await getDetailBook(id);
+const DetailBook = async ({params}: {params: Promise<{id: string}>}) => {
+  const {id} = await params;
+  const book: BookType & DetailBookType = await getDetailBook(id);
 
   return (
     <div className="container mx-auto p-4">
