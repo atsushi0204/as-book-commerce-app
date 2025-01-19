@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import prisma from "@/app/lib/next-auth/prisma";
 import { NextResponse } from "next/server";
 
 // 購入履歴検索API
 export async function GET(
     request: Request,
-    context: {params: {userId: string}}
+    context: any
 ){
     const userId = context.params.userId;
 
