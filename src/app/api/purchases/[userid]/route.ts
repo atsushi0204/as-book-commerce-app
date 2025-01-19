@@ -1,5 +1,5 @@
 import prisma from "@/app/lib/next-auth/prisma";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 // 購入履歴検索API
 export async function GET(
